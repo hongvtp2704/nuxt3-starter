@@ -3,6 +3,7 @@
 <template>
   {{ $t('welcome') }} from main
   <div>
-    <a />
+    <svg-icon name="avatar" />
+    <svg-icon name="circle" />
   </div>
 </template>

@@ -6,3 +6,6 @@
 
 ## Configuration
 - SCSS
+
+## Concept
+- Pinia: Setup Store (https://pinia.vuejs.org/core-concepts/#Setup-Stores)

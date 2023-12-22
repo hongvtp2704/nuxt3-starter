@@ -14,12 +14,16 @@
   "dependencies": {
     "@antfu/eslint-config": "^2.4.6",
     "@nuxtjs/svg-sprite": "^1.0.2",
+    "@pinia/nuxt": "^0.5.1",
     "eslint": "^8.56.0",
+    "pinia": "^2.1.7",
     "sass": "^1.69.5"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/i18n": "^8.0.0-rc.11",
+    "@vueuse/core": "^10.7.0",
+    "@vueuse/nuxt": "^10.7.0",
     "lint-staged": "^15.2.0",
     "nuxt": "^3.8.2",
     "simple-git-hooks": "^2.9.0",

@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
-  modules: ['@nuxtjs/i18n', '@nuxtjs/svg-sprite', '@vueuse/nuxt', '@pinia/nuxt'],
+  modules: ['@nuxtjs/i18n', '@nuxtjs/svg-sprite', '@vueuse/nuxt', '@pinia/nuxt', '@nuxtjs/tailwindcss'],
   css: ['~/assets/scss/main.scss'],
   vite: {
     css: {

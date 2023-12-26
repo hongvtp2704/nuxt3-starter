@@ -1,17 +1,18 @@
 import createClient from "openapi-fetch"
 import type {paths} from '~/lib/types/api.schema'
 
-const baseClient = createClient<paths>({
-    baseUrl: 'http://backend.127.0.0.1.nip.io:8080',
-    credentials: 'include',
-    headers: {
-        'x-original-source': 'AT_YC'
-    }
-})
-
 export default function () {
+    const config = useRuntimeConfig()
     const loadingCount = ref(0)
     const isLoading = computed(() => loadingCount.value === 0)
+
+    const baseClient = createClient<paths>({
+        baseUrl: config.public.apiBase,
+        credentials: 'include',
+        headers: {
+            'x-original-source': 'AT_YC'
+        }
+    })
 
     function wrapper<T extends Function> (originalFn: T): T {
         const wrapFn = async (...args: any) => {

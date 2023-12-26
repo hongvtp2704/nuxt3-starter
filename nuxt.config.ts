@@ -16,5 +16,10 @@ export default defineNuxtConfig({
   svgSprite: {
     input: '~/assets/icons/sprite/svg',
     output: '~/assets/icons/sprite/gen'
+  },
+  runtimeConfig: {
+    public: {
+      apiBase: process.env.NUXT_PUBLIC_API_BASE
+    }
   }
 })

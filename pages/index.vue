@@ -11,4 +11,9 @@ onMounted(async () => {
 
 <template>
   {{ $t('welcome') }} from main
+  <NuxtLink to="/login">
+    <common-button class="mt-2" icon="avatar">
+      Go to login
+    </common-button>
+  </NuxtLink>
 </template>

@@ -8,18 +8,18 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "~/assets/scss/variables.scss" as *;'
-        }
-      }
-    }
+          additionalData: '@use "~/assets/scss/variables.scss" as *;',
+        },
+      },
+    },
   },
   svgSprite: {
     input: '~/assets/icons/sprite/svg',
-    output: '~/assets/icons/sprite/gen'
+    output: '~/assets/icons/sprite/gen',
   },
   runtimeConfig: {
     public: {
-      apiBase: process.env.NUXT_PUBLIC_API_BASE
-    }
-  }
+      apiBase: process.env.NUXT_PUBLIC_API_BASE,
+    },
+  },
 })

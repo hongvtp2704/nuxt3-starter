@@ -3,2368 +3,2367 @@
  * Do not make direct changes to the file.
  */
 
-
 export interface paths {
-  "/api-v2/work/comic/{comicId}": {
-    get: operations["getComicDetail"];
-    put: operations["updateComic"];
-    delete: operations["deleteComic"];
-  };
-  "/api-v2/work/chapters/{id}": {
-    get: operations["getChapter"];
-    put: operations["updateChapter"];
-  };
-  "/api-v1/auth/identities/update-password": {
-    put: operations["userUpdatePassword"];
-  };
-  "/api-v1/auth/admin/identities": {
-    put: operations["adminUpdatePassword"];
-    post: operations["createIdentities"];
-    delete: operations["deleteIdentities"];
-  };
-  "/api-v1/auth/admin/group": {
-    get: operations["listGroup"];
-    put: operations["updateGroup"];
-    post: operations["createGroup"];
-  };
-  "/api/work/s3/preSignedUpload": {
-    post: operations["preSignedUpload"];
-  };
-  "/api/work/s3/downloadImages": {
-    post: operations["downloadImage"];
-  };
-  "/api/work/RENAME_COMIC_OR_CHAPTER": {
-    post: operations["RenameComicOrChapter"];
-  };
-  "/api/work/GET_LIST_CHAPTER": {
-    post: operations["GetListChapter"];
-  };
-  "/api/work/GET_CHAPTER_DETAIL": {
-    post: operations["GetChapterDetail"];
-  };
-  "/api/work/CREATE_UPDATE_CHAPTER": {
-    post: operations["CreateUpdateChapter"];
-  };
-  "/api/work/CREATE_MANUAL_LOG": {
-    post: operations["createManualLog"];
-  };
-  "/api-v2/work/translate": {
-    post: operations["translate"];
-  };
-  "/api-v2/work/translate/translate-textboxes": {
-    post: operations["translateTextBoxes"];
-  };
-  "/api-v2/work/translate/translate-pts": {
-    post: operations["translatePts"];
-  };
-  "/api-v2/work/ocr/ycomm-vision": {
-    post: operations["detectByYcommVision"];
-  };
-  "/api-v2/work/ocr/google-vision": {
-    post: operations["detectByGoogleVision"];
-  };
-  "/api-v2/work/comic/get-id": {
-    post: operations["getComicId"];
-  };
-  "/api-v2/work/chapters": {
-    post: operations["createDraftChapter"];
-  };
-  "/api-v2/work/chapters/{id}/text-boxes": {
-    post: operations["createTextBoxes"];
-  };
-  "/api-v2/work/chapters/{id}/export-draft-psd": {
-    post: operations["exportDraftPSD"];
-  };
-  "/api-v2/work/chapters/{id}/export-draft-json": {
-    post: operations["exportDraftJSON"];
-  };
-  "/api-v2/work/chapters/{id}/export-draft-image": {
-    post: operations["exportDraftImage"];
-  };
-  "/api-v2/work/chapters/{id}/export-draft-excel": {
-    post: operations["exportDraftExcel"];
-  };
-  "/api-v2/work/chapters/check-name-exist": {
-    post: operations["checkNameExist"];
-  };
-  "/api-v1/work/logs/login": {
-    post: operations["getLoginLogs"];
-  };
-  "/api-v1/work/logs/action": {
-    post: operations["getActionLogs"];
-  };
-  "/api-v1/work/kratos/webhook/reject": {
-    post: operations["reject"];
-  };
-  "/api-v1/work/kratos/webhook/logging-identity": {
-    post: operations["afterLogin"];
-  };
-  "/api-v1/proxy/execute": {
-    post: operations["execute"];
-  };
-  "/api-v1/auth/logout": {
-    post: operations["saveLogoutLog"];
-  };
-  "/api-v1/auth/login-failed": {
-    post: operations["saveLoginFailedLog"];
-  };
-  "/api/work/s3/getS3Url": {
-    get: operations["getS3Url"];
-  };
-  "/api-v2/work/translate/target-locales": {
-    get: operations["getTranslateLocaleList"];
-  };
-  "/api-v2/work/translate/target-locales-pts": {
-    get: operations["getTranslateLocaleListForPts"];
-  };
-  "/api-v2/work/translate/source-locales": {
-    get: operations["getSourceLocale"];
-  };
-  "/api-v2/work/translate/locales": {
-    get: operations["getLocaleList"];
-  };
-  "/api-v2/work/translate/group-translate-locale": {
-    get: operations["groupTranslateLocale"];
-  };
-  "/api-v2/work/translate/engines": {
-    get: operations["getEngineList"];
-  };
-  "/api-v2/work/translate/comic-translate-locale": {
-    get: operations["comicTranslateLocale"];
-  };
-  "/api-v2/work/site": {
-    get: operations["getAllSite"];
-  };
-  "/api-v2/work/site/{id}": {
-    get: operations["getOneSite"];
-  };
-  "/api-v2/work/ocr/engines": {
-    get: operations["getEngineList_1"];
-  };
-  "/api-v2/work/crawl": {
-    get: operations["getListCrawlSite"];
-  };
-  "/api-v2/work/comic/search": {
-    get: operations["searchComic"];
-  };
-  "/api-v2/work/chapters/{id}/validate": {
-    get: operations["validateChapter"];
-  };
-  "/api-v2/work/chapters/{id}/ps": {
-    get: operations["getChapterDetailPS"];
-  };
-  "/api-v2/work/chapters/{id}/export-psd": {
-    get: operations["exportPsd"];
-  };
-  "/api-v2/work/chapters/{id}/export-json": {
-    get: operations["exportJson"];
-  };
-  "/api-v2/work/chapters/{id}/export-image": {
-    get: operations["exportImage"];
-  };
-  "/api-v2/work/chapters/{id}/export-excel": {
-    get: operations["exportExcel"];
-  };
-  "/api-v2/work/chapters/search-ps": {
-    get: operations["searchPs"];
-  };
-  "/api-v2/work/chapters/management": {
-    get: operations["searchChapterManagement"];
-  };
-  "/api-v2/work/chapters/get-training-chapters": {
-    get: operations["exportTrainingJSON"];
-  };
-  "/api-v2/work/chapters/export-url": {
-    get: operations["getExportUrl"];
-  };
-  "/api-v2/test/test-cleaner": {
-    get: operations["testCleaner"];
-  };
-  "/api-v2/test/test-chapter-cleaner": {
-    get: operations["testChapterCleaner"];
-  };
-  "/api-v2/migration/rollback": {
-    get: operations["rollback"];
-  };
-  "/api-v2/migration/image": {
-    get: operations["migrateFromImageTable"];
-  };
-  "/api-v2/migration/image-format": {
-    get: operations["migrateImageFormat"];
-  };
-  "/api-v1/proxy/healthcheck": {
-    get: operations["healthcheck"];
-  };
-  "/api-v1/auth/info": {
-    get: operations["getUserInfo"];
-  };
-  "/api/work/DELETE_LIST_CHAPTER": {
-    delete: operations["deleteChapters"];
-  };
-  "/api-v2/work/chapters/": {
-    delete: operations["deleteChapter"];
-  };
+  '/api-v2/work/comic/{comicId}': {
+    get: operations['getComicDetail']
+    put: operations['updateComic']
+    delete: operations['deleteComic']
+  }
+  '/api-v2/work/chapters/{id}': {
+    get: operations['getChapter']
+    put: operations['updateChapter']
+  }
+  '/api-v1/auth/identities/update-password': {
+    put: operations['userUpdatePassword']
+  }
+  '/api-v1/auth/admin/identities': {
+    put: operations['adminUpdatePassword']
+    post: operations['createIdentities']
+    delete: operations['deleteIdentities']
+  }
+  '/api-v1/auth/admin/group': {
+    get: operations['listGroup']
+    put: operations['updateGroup']
+    post: operations['createGroup']
+  }
+  '/api/work/s3/preSignedUpload': {
+    post: operations['preSignedUpload']
+  }
+  '/api/work/s3/downloadImages': {
+    post: operations['downloadImage']
+  }
+  '/api/work/RENAME_COMIC_OR_CHAPTER': {
+    post: operations['RenameComicOrChapter']
+  }
+  '/api/work/GET_LIST_CHAPTER': {
+    post: operations['GetListChapter']
+  }
+  '/api/work/GET_CHAPTER_DETAIL': {
+    post: operations['GetChapterDetail']
+  }
+  '/api/work/CREATE_UPDATE_CHAPTER': {
+    post: operations['CreateUpdateChapter']
+  }
+  '/api/work/CREATE_MANUAL_LOG': {
+    post: operations['createManualLog']
+  }
+  '/api-v2/work/translate': {
+    post: operations['translate']
+  }
+  '/api-v2/work/translate/translate-textboxes': {
+    post: operations['translateTextBoxes']
+  }
+  '/api-v2/work/translate/translate-pts': {
+    post: operations['translatePts']
+  }
+  '/api-v2/work/ocr/ycomm-vision': {
+    post: operations['detectByYcommVision']
+  }
+  '/api-v2/work/ocr/google-vision': {
+    post: operations['detectByGoogleVision']
+  }
+  '/api-v2/work/comic/get-id': {
+    post: operations['getComicId']
+  }
+  '/api-v2/work/chapters': {
+    post: operations['createDraftChapter']
+  }
+  '/api-v2/work/chapters/{id}/text-boxes': {
+    post: operations['createTextBoxes']
+  }
+  '/api-v2/work/chapters/{id}/export-draft-psd': {
+    post: operations['exportDraftPSD']
+  }
+  '/api-v2/work/chapters/{id}/export-draft-json': {
+    post: operations['exportDraftJSON']
+  }
+  '/api-v2/work/chapters/{id}/export-draft-image': {
+    post: operations['exportDraftImage']
+  }
+  '/api-v2/work/chapters/{id}/export-draft-excel': {
+    post: operations['exportDraftExcel']
+  }
+  '/api-v2/work/chapters/check-name-exist': {
+    post: operations['checkNameExist']
+  }
+  '/api-v1/work/logs/login': {
+    post: operations['getLoginLogs']
+  }
+  '/api-v1/work/logs/action': {
+    post: operations['getActionLogs']
+  }
+  '/api-v1/work/kratos/webhook/reject': {
+    post: operations['reject']
+  }
+  '/api-v1/work/kratos/webhook/logging-identity': {
+    post: operations['afterLogin']
+  }
+  '/api-v1/proxy/execute': {
+    post: operations['execute']
+  }
+  '/api-v1/auth/logout': {
+    post: operations['saveLogoutLog']
+  }
+  '/api-v1/auth/login-failed': {
+    post: operations['saveLoginFailedLog']
+  }
+  '/api/work/s3/getS3Url': {
+    get: operations['getS3Url']
+  }
+  '/api-v2/work/translate/target-locales': {
+    get: operations['getTranslateLocaleList']
+  }
+  '/api-v2/work/translate/target-locales-pts': {
+    get: operations['getTranslateLocaleListForPts']
+  }
+  '/api-v2/work/translate/source-locales': {
+    get: operations['getSourceLocale']
+  }
+  '/api-v2/work/translate/locales': {
+    get: operations['getLocaleList']
+  }
+  '/api-v2/work/translate/group-translate-locale': {
+    get: operations['groupTranslateLocale']
+  }
+  '/api-v2/work/translate/engines': {
+    get: operations['getEngineList']
+  }
+  '/api-v2/work/translate/comic-translate-locale': {
+    get: operations['comicTranslateLocale']
+  }
+  '/api-v2/work/site': {
+    get: operations['getAllSite']
+  }
+  '/api-v2/work/site/{id}': {
+    get: operations['getOneSite']
+  }
+  '/api-v2/work/ocr/engines': {
+    get: operations['getEngineList_1']
+  }
+  '/api-v2/work/crawl': {
+    get: operations['getListCrawlSite']
+  }
+  '/api-v2/work/comic/search': {
+    get: operations['searchComic']
+  }
+  '/api-v2/work/chapters/{id}/validate': {
+    get: operations['validateChapter']
+  }
+  '/api-v2/work/chapters/{id}/ps': {
+    get: operations['getChapterDetailPS']
+  }
+  '/api-v2/work/chapters/{id}/export-psd': {
+    get: operations['exportPsd']
+  }
+  '/api-v2/work/chapters/{id}/export-json': {
+    get: operations['exportJson']
+  }
+  '/api-v2/work/chapters/{id}/export-image': {
+    get: operations['exportImage']
+  }
+  '/api-v2/work/chapters/{id}/export-excel': {
+    get: operations['exportExcel']
+  }
+  '/api-v2/work/chapters/search-ps': {
+    get: operations['searchPs']
+  }
+  '/api-v2/work/chapters/management': {
+    get: operations['searchChapterManagement']
+  }
+  '/api-v2/work/chapters/get-training-chapters': {
+    get: operations['exportTrainingJSON']
+  }
+  '/api-v2/work/chapters/export-url': {
+    get: operations['getExportUrl']
+  }
+  '/api-v2/test/test-cleaner': {
+    get: operations['testCleaner']
+  }
+  '/api-v2/test/test-chapter-cleaner': {
+    get: operations['testChapterCleaner']
+  }
+  '/api-v2/migration/rollback': {
+    get: operations['rollback']
+  }
+  '/api-v2/migration/image': {
+    get: operations['migrateFromImageTable']
+  }
+  '/api-v2/migration/image-format': {
+    get: operations['migrateImageFormat']
+  }
+  '/api-v1/proxy/healthcheck': {
+    get: operations['healthcheck']
+  }
+  '/api-v1/auth/info': {
+    get: operations['getUserInfo']
+  }
+  '/api/work/DELETE_LIST_CHAPTER': {
+    delete: operations['deleteChapters']
+  }
+  '/api-v2/work/chapters/': {
+    delete: operations['deleteChapter']
+  }
 }
 
-export type webhooks = Record<string, never>;
+export type webhooks = Record<string, never>
 
 export interface components {
   schemas: {
     UpdateComicReq: {
-      COMIC_NAME: string;
-    };
+      COMIC_NAME: string
+    }
     AppResponseComicDetailRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["ComicDetailRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['ComicDetailRes']
+    }
     ComicDetailRes: {
       /** Format: int64 */
-      COMIC_ID?: number;
-      COMIC_NAME?: string;
-      COMIC_SITE_ID?: string;
-      SITE?: components["schemas"]["SiteDetailRes"];
-      PERMISSION?: components["schemas"]["ComicPermissionRes"];
-    };
+      COMIC_ID?: number
+      COMIC_NAME?: string
+      COMIC_SITE_ID?: string
+      SITE?: components['schemas']['SiteDetailRes']
+      PERMISSION?: components['schemas']['ComicPermissionRes']
+    }
     ComicPermissionRes: {
-      CAN_UPLOAD?: boolean;
-      CAN_BRING?: boolean;
-      CAN_CRAWL?: boolean;
-    };
+      CAN_UPLOAD?: boolean
+      CAN_BRING?: boolean
+      CAN_CRAWL?: boolean
+    }
     SiteDetailRes: {
       /** Format: int64 */
-      ID?: number;
-      NAME?: string;
-      URL?: string;
-    };
+      ID?: number
+      NAME?: string
+      URL?: string
+    }
     CreateUpdateTextBoxesRequest: {
       /** Format: int64 */
-      MY_SITE_ID?: number;
-      COMIC_SITE_ID?: string;
-      COMIC_NAME?: string;
-      CHAPTER_NAME?: string;
-      ORIGINAL_LOCALE_CODE?: string;
-      TRANSLATED_LOCALE_CODE?: string;
-      TRANSLATED_TEXT_BOXES?: components["schemas"]["TextBoxDtoReq"][];
-      ORIGINAL_TEXT_BOXES?: components["schemas"]["TextBoxDtoReq"][];
-      UPLOAD?: boolean;
-    };
+      MY_SITE_ID?: number
+      COMIC_SITE_ID?: string
+      COMIC_NAME?: string
+      CHAPTER_NAME?: string
+      ORIGINAL_LOCALE_CODE?: string
+      TRANSLATED_LOCALE_CODE?: string
+      TRANSLATED_TEXT_BOXES?: components['schemas']['TextBoxDtoReq'][]
+      ORIGINAL_TEXT_BOXES?: components['schemas']['TextBoxDtoReq'][]
+      UPLOAD?: boolean
+    }
     TextBoxDtoReq: {
       /** Format: int64 */
-      ID?: number;
+      ID?: number
       /** Format: int32 */
-      ORIGINAL_TEXT_BOX_ID?: number;
+      ORIGINAL_TEXT_BOX_ID?: number
       /** Format: int32 */
-      COMBINED_X?: number;
+      COMBINED_X?: number
       /** Format: int32 */
-      COMBINED_Y?: number;
+      COMBINED_Y?: number
       /** Format: int32 */
-      WIDTH?: number;
+      WIDTH?: number
       /** Format: int32 */
-      HEIGHT?: number;
-      LOCALE_CODE?: string;
-      TEXT?: string;
-      FONT_SIZE?: string;
-      FONT_STYLE?: string;
-      FONT_WEIGHT?: string;
-      FONT_FAMILY?: string;
-      TEXT_ALIGN?: string;
-      TEXT_DECORATION?: string;
-      TEXT_COLOR?: string;
-      TEXT_DECORATION_COLOR?: string;
-      TEXT_UNDERLINE_OFFSET?: string;
-      BACKGROUND_COLOR?: string;
-      TEXT_SHADOW?: string;
+      HEIGHT?: number
+      LOCALE_CODE?: string
+      TEXT?: string
+      FONT_SIZE?: string
+      FONT_STYLE?: string
+      FONT_WEIGHT?: string
+      FONT_FAMILY?: string
+      TEXT_ALIGN?: string
+      TEXT_DECORATION?: string
+      TEXT_COLOR?: string
+      TEXT_DECORATION_COLOR?: string
+      TEXT_UNDERLINE_OFFSET?: string
+      BACKGROUND_COLOR?: string
+      TEXT_SHADOW?: string
       /** Format: int32 */
-      ROTATE_DEGREE?: number;
-      CAN_EDIT_BACKGROUND?: boolean;
-      FEEDBACK?: boolean;
-      MANUAL_CREATE_TEXT_BOX?: boolean;
-    };
+      ROTATE_DEGREE?: number
+      CAN_EDIT_BACKGROUND?: boolean
+      FEEDBACK?: boolean
+      MANUAL_CREATE_TEXT_BOX?: boolean
+    }
     AppResponseChapterDetailRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["ChapterDetailRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['ChapterDetailRes']
+    }
     ChapterDetailRes: {
       /** Format: int64 */
-      ID?: number;
-      CHAPTER_SITE_ID?: string;
-      CHAPTER_NAME?: string;
-      COMIC?: components["schemas"]["Comic"];
-      CREATED_AT?: string;
-      UPDATED_AT?: string;
-      OWNER?: string;
-      USER_GROUP?: string;
+      ID?: number
+      CHAPTER_SITE_ID?: string
+      CHAPTER_NAME?: string
+      COMIC?: components['schemas']['Comic']
+      CREATED_AT?: string
+      UPDATED_AT?: string
+      OWNER?: string
+      USER_GROUP?: string
       /** Format: int64 */
-      ORIGINAL_LOCALE_ID?: number;
-      ORIGINAL_LOCALE_NAME?: string;
-      ORIGINAL_LOCALE_CODE?: string;
-      ORIGINAL_LOCALE_ISO2?: string;
+      ORIGINAL_LOCALE_ID?: number
+      ORIGINAL_LOCALE_NAME?: string
+      ORIGINAL_LOCALE_CODE?: string
+      ORIGINAL_LOCALE_ISO2?: string
       /** Format: int64 */
-      DEFAULT_TRANSLATED_LOCALE_ID?: number;
-      DEFAULT_TRANSLATED_LOCALE_NAME?: string;
-      DEFAULT_TRANSLATED_LOCALE_CODE?: string;
-      DEFAULT_TRANSLATED_LOCALE_ISO2?: string;
-      IMAGES?: components["schemas"]["ChapterImageDetail"][];
-      LOCALES?: components["schemas"]["Locale"][];
+      DEFAULT_TRANSLATED_LOCALE_ID?: number
+      DEFAULT_TRANSLATED_LOCALE_NAME?: string
+      DEFAULT_TRANSLATED_LOCALE_CODE?: string
+      DEFAULT_TRANSLATED_LOCALE_ISO2?: string
+      IMAGES?: components['schemas']['ChapterImageDetail'][]
+      LOCALES?: components['schemas']['Locale'][]
       /** Format: int32 */
-      OCR_DETECTED_TEXT_BOX_COUNT?: number;
+      OCR_DETECTED_TEXT_BOX_COUNT?: number
       /** Format: int32 */
-      TRANSLATED_TEXT_BOX_COUNT?: number;
-      PERMISSION?: components["schemas"]["ChapterPermissionRes"];
-      FROM_SITE?: string;
-      UPLOAD?: boolean;
-      VISION_FINISHED?: boolean;
-    };
+      TRANSLATED_TEXT_BOX_COUNT?: number
+      PERMISSION?: components['schemas']['ChapterPermissionRes']
+      FROM_SITE?: string
+      UPLOAD?: boolean
+      VISION_FINISHED?: boolean
+    }
     ChapterImageDetail: {
-      IMAGE_URL?: string;
+      IMAGE_URL?: string
       /** Format: int64 */
-      WIDTH?: number;
+      WIDTH?: number
       /** Format: int64 */
-      HEIGHT?: number;
-    };
+      HEIGHT?: number
+    }
     ChapterPermissionRes: {
-      EXPORT_JSON?: boolean;
-      EXPORT_EXCEL?: boolean;
-      EXPORT_IMAGE?: boolean;
-      EXPORT_PSD?: boolean;
-      SHOW_DRAW_TEXT_BOX_BTN?: boolean;
-      SHOW_TOGGLE_VISION_BOX_BTN?: boolean;
-      SHOW_TOGGLE_TEXT_BOX_BTN?: boolean;
-      SHOW_TRANSLATE_BTN?: boolean;
-      SHOW_TRANSLATE_ENGINE_BTN?: boolean;
-      CAN_TRANSLATE?: boolean;
-    };
+      EXPORT_JSON?: boolean
+      EXPORT_EXCEL?: boolean
+      EXPORT_IMAGE?: boolean
+      EXPORT_PSD?: boolean
+      SHOW_DRAW_TEXT_BOX_BTN?: boolean
+      SHOW_TOGGLE_VISION_BOX_BTN?: boolean
+      SHOW_TOGGLE_TEXT_BOX_BTN?: boolean
+      SHOW_TRANSLATE_BTN?: boolean
+      SHOW_TRANSLATE_ENGINE_BTN?: boolean
+      CAN_TRANSLATE?: boolean
+    }
     Comic: {
       /** Format: int64 */
-      ID?: number;
-      NAME?: string;
-      COMIC_SITE_ID?: string;
-    };
+      ID?: number
+      NAME?: string
+      COMIC_SITE_ID?: string
+    }
     Locale: {
-      LOCALE_CODE?: string;
-      TEXT_BOXES?: components["schemas"]["TextBoxDtoRes"][];
-      ORIGINAL?: boolean;
-    };
+      LOCALE_CODE?: string
+      TEXT_BOXES?: components['schemas']['TextBoxDtoRes'][]
+      ORIGINAL?: boolean
+    }
     TextBoxDtoRes: {
       /** Format: int64 */
-      ID?: number;
+      ID?: number
       /** Format: int64 */
-      CHAPTER_ID?: number;
-      VISION_BOX?: components["schemas"]["VisionBoxDtoRes"];
+      CHAPTER_ID?: number
+      VISION_BOX?: components['schemas']['VisionBoxDtoRes']
       /** Format: int32 */
-      COMBINED_X?: number;
+      COMBINED_X?: number
       /** Format: int32 */
-      COMBINED_Y?: number;
+      COMBINED_Y?: number
       /** Format: int32 */
-      WIDTH?: number;
+      WIDTH?: number
       /** Format: int32 */
-      HEIGHT?: number;
+      HEIGHT?: number
       /** Format: int64 */
-      FIRST_TRANSLATE_ENGINE_ID?: number;
+      FIRST_TRANSLATE_ENGINE_ID?: number
       /** Format: int64 */
-      ORIGINAL_TEXT_BOX_ID?: number;
-      LOCALE_CODE?: string;
-      TEXT?: string;
-      FONT_SIZE?: string;
-      FONT_STYLE?: string;
-      FONT_WEIGHT?: string;
-      FONT_FAMILY?: string;
-      TEXT_ALIGN?: string;
-      TEXT_DECORATION?: string;
-      TEXT_COLOR?: string;
-      TEXT_DECORATION_COLOR?: string;
-      TEXT_UNDERLINE_OFFSET?: string;
-      TEXT_SHADOW?: string;
-      BACKGROUND_COLOR?: string;
-      PLACE_HOLDER?: string;
-      CREATED_AT?: string;
-      UPDATED_AT?: string;
+      ORIGINAL_TEXT_BOX_ID?: number
+      LOCALE_CODE?: string
+      TEXT?: string
+      FONT_SIZE?: string
+      FONT_STYLE?: string
+      FONT_WEIGHT?: string
+      FONT_FAMILY?: string
+      TEXT_ALIGN?: string
+      TEXT_DECORATION?: string
+      TEXT_COLOR?: string
+      TEXT_DECORATION_COLOR?: string
+      TEXT_UNDERLINE_OFFSET?: string
+      TEXT_SHADOW?: string
+      BACKGROUND_COLOR?: string
+      PLACE_HOLDER?: string
+      CREATED_AT?: string
+      UPDATED_AT?: string
       /** Format: int32 */
-      ROTATE_DEGREE?: number;
-      CAN_EDIT_BACKGROUND?: boolean;
-      FEEDBACK?: boolean;
-      MANUAL_CREATE_TEXT_BOX?: boolean;
-    };
+      ROTATE_DEGREE?: number
+      CAN_EDIT_BACKGROUND?: boolean
+      FEEDBACK?: boolean
+      MANUAL_CREATE_TEXT_BOX?: boolean
+    }
     VisionBoxDtoRes: {
       /** Format: int64 */
-      ID?: number;
+      ID?: number
       /** Format: int32 */
-      COMBINED_X?: number;
+      COMBINED_X?: number
       /** Format: int32 */
-      COMBINED_Y?: number;
+      COMBINED_Y?: number
       /** Format: int32 */
-      WIDTH?: number;
+      WIDTH?: number
       /** Format: int32 */
-      HEIGHT?: number;
-      DOMINANT_COLOR?: string;
-    };
+      HEIGHT?: number
+      DOMINANT_COLOR?: string
+    }
     UserUpdatePassReq: {
-      PASSWORD: string;
-      NEW_PASSWORD: string;
-      CONFIRM_NEW_PASSWORD: string;
-    };
+      PASSWORD: string
+      NEW_PASSWORD: string
+      CONFIRM_NEW_PASSWORD: string
+    }
     AppResponseUserUpdatePassRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["UserUpdatePassRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['UserUpdatePassRes']
+    }
     UserUpdatePassRes: {
-      MESSAGE?: string;
-    };
+      MESSAGE?: string
+    }
     AdminUpdatePassReq: {
-      EMAIL: string;
-      PASSWORD: string;
-    };
+      EMAIL: string
+      PASSWORD: string
+    }
     AdminUpdatePassRes: {
-      MESSAGE?: string;
-    };
+      MESSAGE?: string
+    }
     AppResponseAdminUpdatePassRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["AdminUpdatePassRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['AdminUpdatePassRes']
+    }
     UpdateGroupReq: {
       /** Format: int64 */
-      GROUP_ID: number;
+      GROUP_ID: number
       /** Format: int32 */
-      LIMIT_COUNT?: number;
-      CAN_BRING_KILEDEL?: boolean;
-      CAN_BRING_COMICO?: boolean;
-      CAN_BRING_KENAZ?: boolean;
-      LIMITED?: boolean;
-    };
+      LIMIT_COUNT?: number
+      CAN_BRING_KILEDEL?: boolean
+      CAN_BRING_COMICO?: boolean
+      CAN_BRING_KENAZ?: boolean
+      LIMITED?: boolean
+    }
     AppResponseUpdateGroupRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["UpdateGroupRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['UpdateGroupRes']
+    }
     UpdateGroupRes: {
-      MESSAGE?: string;
-    };
+      MESSAGE?: string
+    }
     GenPreSignedUrlReq: {
-      CONTENT_TYPE?: string;
+      CONTENT_TYPE?: string
       /** Format: int64 */
-      CONTENT_LENGTH?: number;
-      FILE_NAME?: string;
-    };
+      CONTENT_LENGTH?: number
+      FILE_NAME?: string
+    }
     AppResponseObject: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: Record<string, never>;
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: Record<string, never>
+    }
     DownloadImageReq: {
-      COMIC_NAME?: string;
-      CHAPTER_NAME?: string;
-      URLS?: string[];
-    };
+      COMIC_NAME?: string
+      CHAPTER_NAME?: string
+      URLS?: string[]
+    }
     AppResponseListString: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: string[];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: string[]
+    }
     RenameReq: {
       /** Format: int64 */
-      COMIC_ID?: number;
-      COMIC_RENAME?: string;
+      COMIC_ID?: number
+      COMIC_RENAME?: string
       /** Format: int64 */
-      CHAPTER_ID?: number;
-      CHAPTER_RENAME?: string;
-    };
+      CHAPTER_ID?: number
+      CHAPTER_RENAME?: string
+    }
     GetListChapterReq: {
       /** Format: int64 */
-      COMIC_ID?: number;
-      COMIC_NAME?: string;
+      COMIC_ID?: number
+      COMIC_NAME?: string
       /** Format: int64 */
-      CHAPTER_ID?: number;
-      CHAPTER_NAME?: string;
-      CREATED_TIME?: string;
-      UPDATED_TIME?: string;
-    };
+      CHAPTER_ID?: number
+      CHAPTER_NAME?: string
+      CREATED_TIME?: string
+      UPDATED_TIME?: string
+    }
     SearchReqGetListChapterReq: {
       /** Format: int32 */
-      SEARCH_PAGE?: number;
+      SEARCH_PAGE?: number
       /** Format: int32 */
-      SEARCH_UNIT?: number;
-      CONDITIONS: components["schemas"]["GetListChapterReq"];
-    };
+      SEARCH_UNIT?: number
+      CONDITIONS: components['schemas']['GetListChapterReq']
+    }
     GetChapterDetailReq: {
       /** Format: int64 */
-      ID?: number;
-      TRANSLATE?: string;
-    };
+      ID?: number
+      TRANSLATE?: string
+    }
     AppResponseGetChapterDetailRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["GetChapterDetailRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['GetChapterDetailRes']
+    }
     ContentTrans: {
-      UPDATED_AT?: string;
-      CREATED_AT?: string;
-      FILE_ZIP?: string;
-      FILES?: components["schemas"]["FileInfo"][];
-      IMAGES?: components["schemas"]["ImgTranslated"][];
-      JSON?: string;
+      UPDATED_AT?: string
+      CREATED_AT?: string
+      FILE_ZIP?: string
+      FILES?: components['schemas']['FileInfo'][]
+      IMAGES?: components['schemas']['ImgTranslated'][]
+      JSON?: string
       /** Format: int32 */
-      TEXT_NUM?: number;
-      LANG?: string;
+      TEXT_NUM?: number
+      LANG?: string
       /** Format: int64 */
-      LANG_ID?: number;
-      ORIGINAL?: boolean;
-    };
+      LANG_ID?: number
+      ORIGINAL?: boolean
+    }
     FileInfo: {
-      UPDATED_AT?: string;
+      UPDATED_AT?: string
       /** Format: int64 */
-      FILE_ID?: number;
-      URL?: string;
-      CREATED_AT?: string;
-    };
+      FILE_ID?: number
+      URL?: string
+      CREATED_AT?: string
+    }
     GetChapterDetailRes: {
-      UPDATED_AT?: string;
-      CREATED_AT?: string;
-      TRANSLATED?: components["schemas"]["ContentTrans"][];
-      LIST_LANG?: components["schemas"]["ListLang"][];
-      CRAWLER_DATA?: Record<string, never>;
-      SITE?: string;
-      COMIC_NAME?: string;
+      UPDATED_AT?: string
+      CREATED_AT?: string
+      TRANSLATED?: components['schemas']['ContentTrans'][]
+      LIST_LANG?: components['schemas']['ListLang'][]
+      CRAWLER_DATA?: Record<string, never>
+      SITE?: string
+      COMIC_NAME?: string
       /** Format: int64 */
-      COMIC_ID?: number;
-      CHAPTER_NAME?: string;
+      COMIC_ID?: number
+      CHAPTER_NAME?: string
       /** Format: int64 */
-      ID?: number;
-    };
+      ID?: number
+    }
     ImgTranslated: {
-      UPDATED_AT?: string;
-      CREATED_AT?: string;
-      URL?: string;
-      JSON?: Record<string, never>;
+      UPDATED_AT?: string
+      CREATED_AT?: string
+      URL?: string
+      JSON?: Record<string, never>
       /** Format: int32 */
-      IMG_NO?: number;
+      IMG_NO?: number
       /** Format: int64 */
-      IMG_ID?: number;
-    };
+      IMG_ID?: number
+    }
     ListLang: {
       /** Format: int64 */
-      LANG_ID?: number;
-      LANG?: string;
+      LANG_ID?: number
+      LANG?: string
       /** Format: int32 */
-      TEXT_NUMBER?: number;
-    };
+      TEXT_NUMBER?: number
+    }
     CreateUpdateChapterDto: {
       /** Format: int64 */
-      ID?: number;
+      ID?: number
       /** Format: int64 */
-      MY_SITE_ID?: number;
-      COMIC_SITE_ID?: string;
+      MY_SITE_ID?: number
+      COMIC_SITE_ID?: string
       /** Format: int64 */
-      COMIC_ID?: number;
-      COMIC_NAME?: string;
-      CHAPTER_SITE_ID?: string;
-      CHAPTER_NAME?: string;
-      ORIGINAL_LOCALE?: string;
-      CRAWLER_DATA?: Record<string, never>;
-      ORIGIN?: components["schemas"]["Language"];
-      TRANSLATES?: components["schemas"]["Language"][];
+      COMIC_ID?: number
+      COMIC_NAME?: string
+      CHAPTER_SITE_ID?: string
+      CHAPTER_NAME?: string
+      ORIGINAL_LOCALE?: string
+      CRAWLER_DATA?: Record<string, never>
+      ORIGIN?: components['schemas']['Language']
+      TRANSLATES?: components['schemas']['Language'][]
       /** Format: int32 */
-      IMAGE_COUNT?: number;
-      UPLOAD?: boolean;
-    };
+      IMAGE_COUNT?: number
+      UPLOAD?: boolean
+    }
     Image: {
       /** Format: int64 */
-      ID?: number;
+      ID?: number
       /** Format: int32 */
-      IMG_NO?: number;
-      OBJECT_KEY?: string;
-      JSON?: Record<string, never>;
-    };
+      IMG_NO?: number
+      OBJECT_KEY?: string
+      JSON?: Record<string, never>
+    }
     Language: {
       /** Format: int64 */
-      ID?: number;
-      LOCALE?: string;
+      ID?: number
+      LOCALE?: string
       /** Format: int32 */
-      TEXT_NUMBER?: number;
-      IMAGES?: components["schemas"]["Image"][];
-    };
+      TEXT_NUMBER?: number
+      IMAGES?: components['schemas']['Image'][]
+    }
     LogReq: {
-      COMIC_NAME?: string;
-      CHAPTER_NAME?: string;
-      IMAGE_NAME?: string;
+      COMIC_NAME?: string
+      CHAPTER_NAME?: string
+      IMAGE_NAME?: string
       /** Format: int32 */
-      IMAGE_COUNT?: number;
+      IMAGE_COUNT?: number
       /** Format: int32 */
-      ACTION_TYPE?: number;
+      ACTION_TYPE?: number
       /** Format: int32 */
-      RESULT?: number;
+      RESULT?: number
       /** Format: int32 */
-      GETTING_TYPE?: number;
-      RESIZED_IMAGE?: boolean;
-    };
+      GETTING_TYPE?: number
+      RESIZED_IMAGE?: boolean
+    }
     TranslateReq: {
       /** Format: int32 */
-      GETTING_TYPE_ID?: number;
+      GETTING_TYPE_ID?: number
       /** Format: int64 */
-      CHAPTER_ID?: number;
+      CHAPTER_ID?: number
       /** Format: int64 */
-      TRANSLATE_LOCALE_ID?: number;
+      TRANSLATE_LOCALE_ID?: number
       /** Format: int64 */
-      TRANSLATE_ENGINE_CODE?: number;
-    };
+      TRANSLATE_ENGINE_CODE?: number
+    }
     AppResponseTranslateRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["TranslateRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['TranslateRes']
+    }
     TranslateRes: {
-      SOURCE_LOCALE_CODE?: string;
-      TARGET_LOCALE_CODE?: string;
-      TRANSLATED_TEXT_LIST?: components["schemas"]["TranslateTextList"][];
-    };
+      SOURCE_LOCALE_CODE?: string
+      TARGET_LOCALE_CODE?: string
+      TRANSLATED_TEXT_LIST?: components['schemas']['TranslateTextList'][]
+    }
     TranslateTextList: {
       /** Format: int32 */
-      ORIGINAL_TEXT_BOX_ID?: number;
+      ORIGINAL_TEXT_BOX_ID?: number
       /** Format: int32 */
-      TRANSLATED_TEXT_BOX_ID?: number;
-      TRANSLATED_TEXT?: string;
-    };
+      TRANSLATED_TEXT_BOX_ID?: number
+      TRANSLATED_TEXT?: string
+    }
     TranslateTextBoxesReq: {
       /** Format: int32 */
-      GETTING_TYPE_ID?: number;
+      GETTING_TYPE_ID?: number
       /** Format: int64 */
-      CHAPTER_ID?: number;
+      CHAPTER_ID?: number
       /** Format: int64 */
-      ORIGINAL_LOCALE_ID?: number;
+      ORIGINAL_LOCALE_ID?: number
       /** Format: int64 */
-      TRANSLATE_LOCALE_ID?: number;
+      TRANSLATE_LOCALE_ID?: number
       /** Format: int64 */
-      TRANSLATE_ENGINE_CODE?: number;
-      TEXT_BOXES?: components["schemas"]["TextBoxDtoReq"][];
-    };
+      TRANSLATE_ENGINE_CODE?: number
+      TEXT_BOXES?: components['schemas']['TextBoxDtoReq'][]
+    }
     AppResponseTranslateTextBoxesRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["TranslateTextBoxesRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['TranslateTextBoxesRes']
+    }
     TranslateTextBoxesRes: {
-      SOURCE_LOCALE_CODE?: string;
-      TARGET_LOCALE_CODE?: string;
-      TRANSLATED_TEXT_LIST?: components["schemas"]["TextBoxDtoRes"][];
-    };
+      SOURCE_LOCALE_CODE?: string
+      TARGET_LOCALE_CODE?: string
+      TRANSLATED_TEXT_LIST?: components['schemas']['TextBoxDtoRes'][]
+    }
     TranslatePtsReq: {
-      SOURCE_LOCALE_CODE?: string;
-      TARGET_LOCALE_CODE?: string;
+      SOURCE_LOCALE_CODE?: string
+      TARGET_LOCALE_CODE?: string
       /** Format: int64 */
-      TRANSLATE_ENGINE_CODE?: number;
-      TEXT_LIST?: string[];
-    };
+      TRANSLATE_ENGINE_CODE?: number
+      TEXT_LIST?: string[]
+    }
     AppResponseTranslatePtsRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["TranslatePtsRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['TranslatePtsRes']
+    }
     TranslatePtsRes: {
-      SOURCE_LOCALE_CODE?: string;
-      TARGET_LOCALE_CODE?: string;
-      TRANSLATED_TEXT_LIST?: components["schemas"]["TranslatedText"][];
-    };
+      SOURCE_LOCALE_CODE?: string
+      TARGET_LOCALE_CODE?: string
+      TRANSLATED_TEXT_LIST?: components['schemas']['TranslatedText'][]
+    }
     TranslatedText: {
-      ORIGINAL_TEXT?: string;
-      TRANSLATED_TEXT?: string;
-    };
+      ORIGINAL_TEXT?: string
+      TRANSLATED_TEXT?: string
+    }
     GoogleVisionReq: {
       /** Format: int32 */
-      GETTING_TYPE_ID?: number;
+      GETTING_TYPE_ID?: number
       /** Format: int64 */
-      CHAPTER_ID?: number;
-      IMAGE?: components["schemas"]["ImageOCRInput"][];
-    };
+      CHAPTER_ID?: number
+      IMAGE?: components['schemas']['ImageOCRInput'][]
+    }
     ImageOCRInput: {
-      NAME?: string;
-      URL?: string;
-      RESIZED_URL?: string;
-    };
+      NAME?: string
+      URL?: string
+      RESIZED_URL?: string
+    }
     AppResponseListTextBoxDtoRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["TextBoxDtoRes"][];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['TextBoxDtoRes'][]
+    }
     GetComicIdReq: {
-      COMIC_NAME: string;
-    };
+      COMIC_NAME: string
+    }
     AppResponseGetComicIdRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["GetComicIdRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['GetComicIdRes']
+    }
     GetComicIdRes: {
-      COMIC_ID?: string;
-    };
+      COMIC_ID?: string
+    }
     CreateEmptyChapterReq: {
       /** @enum {string} */
-      FROM_SITE?: "KUAIKANMANHUA" | "AC_QQ" | "KANMAN" | "IQIYI" | "MANMANAPP" | "MANGA_BILIBILI" | "COMIC_NAVER" | "UPLOAD" | "KILEDEL" | "COMICO" | "KENAZ";
-      COMIC_SITE_ID?: string;
-      COMIC_NAME?: string;
+      FROM_SITE?: 'KUAIKANMANHUA' | 'AC_QQ' | 'KANMAN' | 'IQIYI' | 'MANMANAPP' | 'MANGA_BILIBILI' | 'COMIC_NAVER' | 'UPLOAD' | 'KILEDEL' | 'COMICO' | 'KENAZ'
+      COMIC_SITE_ID?: string
+      COMIC_NAME?: string
       /** Format: int64 */
-      COMIC_ID?: number;
-      CHAPTER_NAME: string;
-      RESIZED_IMAGE?: boolean;
-    };
+      COMIC_ID?: number
+      CHAPTER_NAME: string
+      RESIZED_IMAGE?: boolean
+    }
     AppResponseCreateUpdateChapterRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["CreateUpdateChapterRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['CreateUpdateChapterRes']
+    }
     CreateUpdateChapterRes: {
       /** Format: int64 */
-      CHAPTER_ID?: number;
+      CHAPTER_ID?: number
       /** Format: int64 */
-      COMIC_ID?: number;
-      PERMISSION?: components["schemas"]["ChapterPermissionRes"];
-    };
+      COMIC_ID?: number
+      PERMISSION?: components['schemas']['ChapterPermissionRes']
+    }
     CreateDefaultTextBoxesReq: {
-      ORIGINAL_LOCALE_CODE?: string;
-      TRANSLATED_LOCALE_CODE?: string;
-      TEXT_BOXES?: components["schemas"]["TextBoxDtoReq"][];
-    };
+      ORIGINAL_LOCALE_CODE?: string
+      TRANSLATED_LOCALE_CODE?: string
+      TEXT_BOXES?: components['schemas']['TextBoxDtoReq'][]
+    }
     ExportDraftChapterRequest: {
-      COMIC_NAME?: string;
-      CHAPTER_NAME?: string;
-      TARGET_LOCALE_CODE?: string;
-      TRANSLATED_TEXT_BOXES?: components["schemas"]["TextBoxDtoReq"][];
-      UPLOAD?: boolean;
-    };
+      COMIC_NAME?: string
+      CHAPTER_NAME?: string
+      TARGET_LOCALE_CODE?: string
+      TRANSLATED_TEXT_BOXES?: components['schemas']['TextBoxDtoReq'][]
+      UPLOAD?: boolean
+    }
     AppResponseExportQueueRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["ExportQueueRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['ExportQueueRes']
+    }
     ExportQueueRes: {
       /** Format: int64 */
-      ID?: number;
-      STATUS?: string;
-      URL?: string;
-    };
+      ID?: number
+      STATUS?: string
+      URL?: string
+    }
     CheckNameExistReq: {
       /** Format: int64 */
-      COMIC_ID?: number;
-      COMIC_NAME?: string;
-      LIST_CHAPTERS_NAME: string[];
-    };
+      COMIC_ID?: number
+      COMIC_NAME?: string
+      LIST_CHAPTERS_NAME: string[]
+    }
     AppResponseCheckNameExistRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["CheckNameExistRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['CheckNameExistRes']
+    }
     CheckNameExistRes: {
-      LIST_CHAPTERS_NAME_EXIST?: string[];
-    };
+      LIST_CHAPTERS_NAME_EXIST?: string[]
+    }
     PaginationReq: {
       /** Format: int32 */
-      PAGE?: number;
+      PAGE?: number
       /** Format: int32 */
-      PER_PAGE?: number;
-    };
+      PER_PAGE?: number
+    }
     AppResponseLogRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["LogRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['LogRes']
+    }
     LogRes: {
-      MESSAGE?: string;
-    };
+      MESSAGE?: string
+    }
     CreateIdentityReq: {
-      EMAIL: string;
-      PASSWORD: string;
-      ROLE: string;
-      GROUP: string;
-      PS_FLAG?: boolean;
-    };
+      EMAIL: string
+      PASSWORD: string
+      ROLE: string
+      GROUP: string
+      PS_FLAG?: boolean
+    }
     AppResponseCreateIdentityRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["CreateIdentityRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['CreateIdentityRes']
+    }
     CreateIdentityRes: {
-      IDENTITY?: components["schemas"]["Identity"];
-    };
+      IDENTITY?: components['schemas']['Identity']
+    }
     Identity: {
-      CREATED_AT?: string;
+      CREATED_AT?: string
       CREDENTIALS?: {
-        [key: string]: components["schemas"]["IdentityCredentials"];
-      };
-      ID?: string;
-      METADATA_ADMIN?: Record<string, never>;
-      METADATA_PUBLIC?: Record<string, never>;
-      RECOVERY_ADDRESSES?: components["schemas"]["RecoveryIdentityAddress"][];
-      SCHEMA_ID?: string;
-      SCHEMA_URL?: string;
+        [key: string]: components['schemas']['IdentityCredentials']
+      }
+      ID?: string
+      METADATA_ADMIN?: Record<string, never>
+      METADATA_PUBLIC?: Record<string, never>
+      RECOVERY_ADDRESSES?: components['schemas']['RecoveryIdentityAddress'][]
+      SCHEMA_ID?: string
+      SCHEMA_URL?: string
       /** @enum {string} */
-      STATE?: "ACTIVE" | "INACTIVE";
-      STATE_CHANGED_AT?: string;
-      TRAITS?: Record<string, never>;
-      UPDATED_AT?: string;
-      VERIFIABLE_ADDRESSES?: components["schemas"]["VerifiableIdentityAddress"][];
-    };
+      STATE?: 'ACTIVE' | 'INACTIVE'
+      STATE_CHANGED_AT?: string
+      TRAITS?: Record<string, never>
+      UPDATED_AT?: string
+      VERIFIABLE_ADDRESSES?: components['schemas']['VerifiableIdentityAddress'][]
+    }
     IdentityCredentials: {
-      CONFIG?: Record<string, never>;
-      CREATED_AT?: string;
-      IDENTIFIERS?: string[];
+      CONFIG?: Record<string, never>
+      CREATED_AT?: string
+      IDENTIFIERS?: string[]
       /** @enum {string} */
-      TYPE?: "PASSWORD" | "TOTP" | "OIDC" | "WEBAUTHN" | "LOOKUP_SECRET";
-      UPDATED_AT?: string;
+      TYPE?: 'PASSWORD' | 'TOTP' | 'OIDC' | 'WEBAUTHN' | 'LOOKUP_SECRET'
+      UPDATED_AT?: string
       /** Format: int64 */
-      VERSION?: number;
-    };
+      VERSION?: number
+    }
     RecoveryIdentityAddress: {
-      CREATED_AT?: string;
-      ID?: string;
-      UPDATED_AT?: string;
-      VALUE?: string;
-      VIA?: string;
-    };
+      CREATED_AT?: string
+      ID?: string
+      UPDATED_AT?: string
+      VALUE?: string
+      VIA?: string
+    }
     VerifiableIdentityAddress: {
-      CREATED_AT?: string;
-      ID?: string;
-      STATUS?: string;
-      UPDATED_AT?: string;
-      VALUE?: string;
-      VERIFIED?: boolean;
-      VERIFIED_AT?: string;
-      VIA?: string;
-    };
+      CREATED_AT?: string
+      ID?: string
+      STATUS?: string
+      UPDATED_AT?: string
+      VALUE?: string
+      VERIFIED?: boolean
+      VERIFIED_AT?: string
+      VIA?: string
+    }
     CreateGroupReq: {
-      GROUP_NAME: string;
+      GROUP_NAME: string
       /** Format: int32 */
-      LIMIT_COUNT?: number;
-      CAN_BRING_KILEDEL?: boolean;
-      CAN_BRING_COMICO?: boolean;
-      CAN_BRING_KENAZ?: boolean;
-      LIMITED?: boolean;
-    };
+      LIMIT_COUNT?: number
+      CAN_BRING_KILEDEL?: boolean
+      CAN_BRING_COMICO?: boolean
+      CAN_BRING_KENAZ?: boolean
+      LIMITED?: boolean
+    }
     AppResponseCreateGroupRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["CreateGroupRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['CreateGroupRes']
+    }
     CreateGroupRes: {
-      USER_GROUP?: components["schemas"]["UserGroup"];
-    };
+      USER_GROUP?: components['schemas']['UserGroup']
+    }
     UserGroup: {
       /** Format: int64 */
-      ID?: number;
-      NAME?: string;
+      ID?: number
+      NAME?: string
       /** Format: int32 */
-      CURRENT_USING_COUNT?: number;
+      CURRENT_USING_COUNT?: number
       /** Format: int32 */
-      LIMIT_COUNT?: number;
-      CAN_BRING_KILEDEL?: boolean;
-      CAN_BRING_COMICO?: boolean;
-      CAN_BRING_KENAZ?: boolean;
-      LIMITED?: boolean;
-    };
+      LIMIT_COUNT?: number
+      CAN_BRING_KILEDEL?: boolean
+      CAN_BRING_COMICO?: boolean
+      CAN_BRING_KENAZ?: boolean
+      LIMITED?: boolean
+    }
     AppResponseListTargetLocale: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["TargetLocale"][];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['TargetLocale'][]
+    }
     TargetLocale: {
       /** Format: int64 */
-      TRANSLATE_ENGINE_CODE?: number;
+      TRANSLATE_ENGINE_CODE?: number
       /** Format: int64 */
-      ID?: number;
-      NAME?: string;
-      CODE?: string;
-      ISO2?: string;
-      DEFAULT?: boolean;
-    };
+      ID?: number
+      NAME?: string
+      CODE?: string
+      ISO2?: string
+      DEFAULT?: boolean
+    }
     AppResponseListLocaleRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["LocaleRes"][];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['LocaleRes'][]
+    }
     LocaleRes: {
       /** Format: int64 */
-      ID?: number;
-      NAME?: string;
-      CODE?: string;
-      ISO2?: string;
-    };
+      ID?: number
+      NAME?: string
+      CODE?: string
+      ISO2?: string
+    }
     AppResponseListTranslateEngineEntity: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["TranslateEngineEntity"][];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['TranslateEngineEntity'][]
+    }
     TranslateEngineEntity: {
       /** Format: int64 */
-      ID?: number;
-      NAME?: string;
-      CREATED_AT?: string;
-      UPDATED_AT?: string;
+      ID?: number
+      NAME?: string
+      CREATED_AT?: string
+      UPDATED_AT?: string
       /** Format: int64 */
-      CODE?: number;
-    };
+      CODE?: number
+    }
     AppResponseListSiteEntity: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["SiteEntity"][];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['SiteEntity'][]
+    }
     ChapterEntity: {
       /** Format: int64 */
-      ID?: number;
-      CRAWLER_DATA?: Record<string, never>;
-      CHAPTER_SITE_ID?: string;
-      CHAPTER_NAME?: string;
-      ORIGINAL_LOCALE_CODE?: string;
-      OWNER?: string;
-      USER_GROUP?: string;
-      IS_VISION_FINISHED?: boolean;
-      ZIP_URL?: string;
-      NEW_API?: boolean;
-      DEFAULT_TRANSLATED_LOCALE_CODE?: string;
-      FROM_SITE?: string;
+      ID?: number
+      CRAWLER_DATA?: Record<string, never>
+      CHAPTER_SITE_ID?: string
+      CHAPTER_NAME?: string
+      ORIGINAL_LOCALE_CODE?: string
+      OWNER?: string
+      USER_GROUP?: string
+      IS_VISION_FINISHED?: boolean
+      ZIP_URL?: string
+      NEW_API?: boolean
+      DEFAULT_TRANSLATED_LOCALE_CODE?: string
+      FROM_SITE?: string
       /** Format: int32 */
-      TRANSLATED_COUNT?: number;
-      VISION_START_AT?: string;
-      VISION_END_AT?: string;
-      CREATED_AT?: string;
-      UPDATED_AT?: string;
-      COMIC?: components["schemas"]["ComicEntity"];
-      LANGUAGES?: components["schemas"]["LanguageEntity"][];
-      IMAGES?: components["schemas"]["ImageEntity"][];
-      FORCE_RESIZE_IMAGE?: boolean;
-      UPLOAD?: boolean;
-      GETTING_TYPE_NAME?: string;
-      DRAFT?: boolean;
-      OCR_PERMISSION?: boolean;
-      BRING_CHAPTER?: boolean;
-      TRANSLATE_PERMISSION?: boolean;
-    };
+      TRANSLATED_COUNT?: number
+      VISION_START_AT?: string
+      VISION_END_AT?: string
+      CREATED_AT?: string
+      UPDATED_AT?: string
+      COMIC?: components['schemas']['ComicEntity']
+      LANGUAGES?: components['schemas']['LanguageEntity'][]
+      IMAGES?: components['schemas']['ImageEntity'][]
+      FORCE_RESIZE_IMAGE?: boolean
+      UPLOAD?: boolean
+      GETTING_TYPE_NAME?: string
+      DRAFT?: boolean
+      OCR_PERMISSION?: boolean
+      BRING_CHAPTER?: boolean
+      TRANSLATE_PERMISSION?: boolean
+    }
     ComicEntity: {
       /** Format: int64 */
-      ID?: number;
-      COMIC_SITE_ID?: string;
-      EMAIL_OWNER?: string;
+      ID?: number
+      COMIC_SITE_ID?: string
+      EMAIL_OWNER?: string
       /** Format: int64 */
-      USER_GROUP_ID?: number;
-      NAME?: string;
-      CREATED_AT?: string;
-      UPDATED_AT?: string;
-      CHAPTERS?: components["schemas"]["ChapterEntity"][];
-      SITE?: components["schemas"]["SiteEntity"];
-    };
+      USER_GROUP_ID?: number
+      NAME?: string
+      CREATED_AT?: string
+      UPDATED_AT?: string
+      CHAPTERS?: components['schemas']['ChapterEntity'][]
+      SITE?: components['schemas']['SiteEntity']
+    }
     ImageEntity: {
       /** Format: int64 */
-      ID?: number;
-      IMAGE_NAME?: string;
+      ID?: number
+      IMAGE_NAME?: string
       /** Format: int32 */
-      IMAGE_ORDER?: number;
+      IMAGE_ORDER?: number
       /** Format: int32 */
-      IMG_NO?: number;
-      URL?: string;
-      RESIZED_URL?: string;
+      IMG_NO?: number
+      URL?: string
+      RESIZED_URL?: string
       /** Format: int64 */
-      WIDTH?: number;
+      WIDTH?: number
       /** Format: int64 */
-      HEIGHT?: number;
-      BUCKET_NAME?: string;
-      REGION?: string;
-      IS_MIGRATE_IMAGE?: boolean;
-      DISABLED?: boolean;
-      JSON?: Record<string, never>;
-      CREATED_AT?: string;
-      UPDATED_AT?: string;
-      LANGUAGE?: components["schemas"]["LanguageEntity"];
-      CHAPTER?: components["schemas"]["ChapterEntity"];
-      PREVENT_UPDATED_AT?: boolean;
-    };
+      HEIGHT?: number
+      BUCKET_NAME?: string
+      REGION?: string
+      IS_MIGRATE_IMAGE?: boolean
+      DISABLED?: boolean
+      JSON?: Record<string, never>
+      CREATED_AT?: string
+      UPDATED_AT?: string
+      LANGUAGE?: components['schemas']['LanguageEntity']
+      CHAPTER?: components['schemas']['ChapterEntity']
+      PREVENT_UPDATED_AT?: boolean
+    }
     LanguageEntity: {
       /** Format: int64 */
-      ID?: number;
+      ID?: number
       /** Format: int64 */
-      CHAPTER_ID?: number;
-      IS_ORIGINAL?: boolean;
-      LOCALE?: string;
+      CHAPTER_ID?: number
+      IS_ORIGINAL?: boolean
+      LOCALE?: string
       /** Format: int32 */
-      TEXT_NUMBER?: number;
-      CREATED_AT?: string;
-      UPDATED_AT?: string;
-      CHAPTER?: components["schemas"]["ChapterEntity"];
-      IMAGES?: components["schemas"]["ImageEntity"][];
-    };
+      TEXT_NUMBER?: number
+      CREATED_AT?: string
+      UPDATED_AT?: string
+      CHAPTER?: components['schemas']['ChapterEntity']
+      IMAGES?: components['schemas']['ImageEntity'][]
+    }
     SiteEntity: {
       /** Format: int64 */
-      ID?: number;
-      URL?: string;
-      COMICS?: components["schemas"]["ComicEntity"][];
-      NAME?: string;
-    };
+      ID?: number
+      URL?: string
+      COMICS?: components['schemas']['ComicEntity'][]
+      NAME?: string
+    }
     AppResponseOptionalSiteEntity: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["SiteEntity"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['SiteEntity']
+    }
     AppResponseListOCREngineEntity: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["OCREngineEntity"][];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['OCREngineEntity'][]
+    }
     OCREngineEntity: {
       /** Format: int64 */
-      ID?: number;
-      NAME?: string;
-      CREATED_AT?: string;
-      UPDATED_AT?: string;
-    };
+      ID?: number
+      NAME?: string
+      CREATED_AT?: string
+      UPDATED_AT?: string
+    }
     AppResponseListCrawlSiteDto: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["CrawlSiteDto"][];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['CrawlSiteDto'][]
+    }
     CrawlSiteDto: {
       /** Format: int32 */
-      CODE?: number;
-      URL?: string;
-      SITE_NAME?: string;
-      VERSION?: string;
-      OCR?: boolean;
-      TRANSLATE?: boolean;
-    };
+      CODE?: number
+      URL?: string
+      SITE_NAME?: string
+      VERSION?: string
+      OCR?: boolean
+      TRANSLATE?: boolean
+    }
     AppResponseSearchRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["SearchRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['SearchRes']
+    }
     SearchRes: {
       /** Format: int32 */
-      CURRENT_PAGE?: number;
+      CURRENT_PAGE?: number
       /** Format: int32 */
-      SIZE?: number;
+      SIZE?: number
       /** Format: int32 */
-      TOTAL_PAGES?: number;
+      TOTAL_PAGES?: number
       /** Format: int64 */
-      TOTAL_RESULT?: number;
-      ITEMS?: components["schemas"]["SearchResItem"][];
-    };
+      TOTAL_RESULT?: number
+      ITEMS?: components['schemas']['SearchResItem'][]
+    }
     SearchResItem: {
       /** Format: int64 */
-      ID?: number;
-      NAME?: string;
+      ID?: number
+      NAME?: string
       /** Format: int64 */
-      TOTAL_CHAPTERS?: number;
-      LOCALE_CODE?: string;
-      LOCALE_NAME?: string;
-      UPDATED_AT?: string;
-    };
+      TOTAL_CHAPTERS?: number
+      LOCALE_CODE?: string
+      LOCALE_NAME?: string
+      UPDATED_AT?: string
+    }
     AppResponseString: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: string;
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: string
+    }
     AppResponseRedirectExportChapterInput: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["RedirectExportChapterInput"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['RedirectExportChapterInput']
+    }
     RedirectExportChapterInput: {
-      FROM_SITE?: string;
-      ORIGINAL_LOCALE?: string;
-      TARGET_LOCALE?: string;
-      NAME?: string;
-      IMAGES?: components["schemas"]["RedirectExportImageInput"][];
-      EXPORT_IMAGE_TYPE?: string;
-    };
+      FROM_SITE?: string
+      ORIGINAL_LOCALE?: string
+      TARGET_LOCALE?: string
+      NAME?: string
+      IMAGES?: components['schemas']['RedirectExportImageInput'][]
+      EXPORT_IMAGE_TYPE?: string
+    }
     RedirectExportImageInput: {
-      URL?: string;
-      NAME?: string;
+      URL?: string
+      NAME?: string
       /** Format: int64 */
-      WIDTH?: number;
+      WIDTH?: number
       /** Format: int64 */
-      HEIGHT?: number;
-      IS_CONFLICT_TEXTBOX?: boolean;
-      TEXT_BOXES?: components["schemas"]["RedirectExportTextBoxInput"][];
-      CONFLICT_TEXT_BOX?: boolean;
-    };
+      HEIGHT?: number
+      IS_CONFLICT_TEXTBOX?: boolean
+      TEXT_BOXES?: components['schemas']['RedirectExportTextBoxInput'][]
+      CONFLICT_TEXT_BOX?: boolean
+    }
     RedirectExportTextBoxInput: {
       /** Format: int32 */
-      COMBINED_X?: number;
+      COMBINED_X?: number
       /** Format: int32 */
-      COMBINED_Y?: number;
+      COMBINED_Y?: number
       /** Format: int32 */
-      WIDTH?: number;
+      WIDTH?: number
       /** Format: int32 */
-      HEIGHT?: number;
-      LOCALE_CODE?: string;
-      TEXT?: string;
-      FONT_SIZE?: string;
-      FONT_STYLE?: string;
-      FONT_WEIGHT?: string;
-      FONT_FAMILY?: string;
-      TEXT_ALIGN?: string;
-      TEXT_DECORATION?: string;
-      TEXT_COLOR?: string;
-      TEXT_DECORATION_COLOR?: string;
-      TEXT_UNDERLINE_OFFSET?: string;
-      TEXT_SHADOW?: string;
-      BACKGROUND_COLOR?: string;
-      ORIGINAL_TEXT?: string;
+      HEIGHT?: number
+      LOCALE_CODE?: string
+      TEXT?: string
+      FONT_SIZE?: string
+      FONT_STYLE?: string
+      FONT_WEIGHT?: string
+      FONT_FAMILY?: string
+      TEXT_ALIGN?: string
+      TEXT_DECORATION?: string
+      TEXT_COLOR?: string
+      TEXT_DECORATION_COLOR?: string
+      TEXT_UNDERLINE_OFFSET?: string
+      TEXT_SHADOW?: string
+      BACKGROUND_COLOR?: string
+      ORIGINAL_TEXT?: string
       /** Format: int64 */
-      ORIGINAL_TEXT_BOX_ID?: number;
-      VISION_BOX?: components["schemas"]["RedirectExportVisionBoxInput"];
-      IS_FEEDBACK?: boolean;
-      CAN_EDIT_BACKGROUND?: boolean;
-      FEEDBACK?: boolean;
-    };
+      ORIGINAL_TEXT_BOX_ID?: number
+      VISION_BOX?: components['schemas']['RedirectExportVisionBoxInput']
+      IS_FEEDBACK?: boolean
+      CAN_EDIT_BACKGROUND?: boolean
+      FEEDBACK?: boolean
+    }
     RedirectExportVisionBoxInput: {
       /** Format: int32 */
-      COMBINED_X?: number;
+      COMBINED_X?: number
       /** Format: int32 */
-      COMBINED_Y?: number;
+      COMBINED_Y?: number
       /** Format: int32 */
-      WIDTH?: number;
+      WIDTH?: number
       /** Format: int32 */
-      HEIGHT?: number;
-      DOMINANT_COLOR?: string;
-    };
+      HEIGHT?: number
+      DOMINANT_COLOR?: string
+    }
     AppResponseRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["Res"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['Res']
+    }
     Item: {
       /** Format: int64 */
-      NO?: number;
+      NO?: number
       /** Format: int64 */
-      COMIC_ID?: number;
-      COMIC_NAME?: string;
+      COMIC_ID?: number
+      COMIC_NAME?: string
       /** Format: int64 */
-      CHAPTER_ID?: number;
-      CHAPTER_NAME?: string;
+      CHAPTER_ID?: number
+      CHAPTER_NAME?: string
       /** Format: int32 */
-      ORIGINAL_TEXT_BOXES?: number;
-      TRANSLATE_TEX_BOX_NAME?: string;
+      ORIGINAL_TEXT_BOXES?: number
+      TRANSLATE_TEX_BOX_NAME?: string
       /** Format: int32 */
-      TRANSLATE_TEX_BOXES_COUNT?: number;
-      CREATED_TIME?: string;
-      UPDATED_TIME?: string;
-    };
+      TRANSLATE_TEX_BOXES_COUNT?: number
+      CREATED_TIME?: string
+      UPDATED_TIME?: string
+    }
     Res: {
-      ITEMS?: components["schemas"]["Item"][];
-    };
+      ITEMS?: components['schemas']['Item'][]
+    }
     AppResponseExportTrainingResult: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["ExportTrainingResult"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['ExportTrainingResult']
+    }
     ExportTrainingResult: {
       /** Format: int32 */
-      PAGE?: number;
+      PAGE?: number
       /** Format: int32 */
-      PER_PAGE?: number;
+      PER_PAGE?: number
       /** Format: int32 */
-      TOTAL_PAGES?: number;
+      TOTAL_PAGES?: number
       /** Format: int64 */
-      TOTAL_ITEMS?: number;
-      ITEMS?: components["schemas"]["TrainingChapter"][];
-    };
+      TOTAL_ITEMS?: number
+      ITEMS?: components['schemas']['TrainingChapter'][]
+    }
     TrainingChapter: {
       /** Format: int64 */
-      CHAPTER_ID?: number;
-      COMIC_NAME?: string;
-      CHAPTER_NAME?: string;
-      LOCALE_CODE?: string;
-      IMAGES?: components["schemas"]["TrainingImage"][];
-    };
+      CHAPTER_ID?: number
+      COMIC_NAME?: string
+      CHAPTER_NAME?: string
+      LOCALE_CODE?: string
+      IMAGES?: components['schemas']['TrainingImage'][]
+    }
     TrainingImage: {
-      URL?: string;
-      NAME?: string;
+      URL?: string
+      NAME?: string
       /** Format: int64 */
-      WIDTH?: number;
+      WIDTH?: number
       /** Format: int64 */
-      HEIGHT?: number;
-      VISION_BOXES?: components["schemas"]["TrainingVisionBox"][];
-    };
+      HEIGHT?: number
+      VISION_BOXES?: components['schemas']['TrainingVisionBox'][]
+    }
     TrainingVisionBox: {
       /** Format: int32 */
-      COMBINED_X?: number;
+      COMBINED_X?: number
       /** Format: int32 */
-      COMBINED_Y?: number;
+      COMBINED_Y?: number
       /** Format: int32 */
-      WIDTH?: number;
+      WIDTH?: number
       /** Format: int32 */
-      HEIGHT?: number;
-      TEXT?: string;
-    };
+      HEIGHT?: number
+      TEXT?: string
+    }
     AppResponseUserInfRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["UserInfRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['UserInfRes']
+    }
     BasePermissionsRes: {
-      CAN_OCR?: boolean;
-      CAN_TRANSLATE?: boolean;
-      CAN_UPLOAD?: boolean;
-      CAN_CRAWL?: boolean;
-      CAN_BRING_KILEDEL?: boolean;
-      CAN_BRING_COMICO?: boolean;
-      CAN_BRING_KENAZ?: boolean;
-      CAN_IMPORT_TRANSLATE_PS_EXT?: boolean;
-      CAN_AUTO_TRANSLATE_PS_EXT?: boolean;
-    };
+      CAN_OCR?: boolean
+      CAN_TRANSLATE?: boolean
+      CAN_UPLOAD?: boolean
+      CAN_CRAWL?: boolean
+      CAN_BRING_KILEDEL?: boolean
+      CAN_BRING_COMICO?: boolean
+      CAN_BRING_KENAZ?: boolean
+      CAN_IMPORT_TRANSLATE_PS_EXT?: boolean
+      CAN_AUTO_TRANSLATE_PS_EXT?: boolean
+    }
     UserInfRes: {
-      GROUP?: string;
-      ROLE?: string;
-      PS_FLAG?: boolean;
+      GROUP?: string
+      ROLE?: string
+      PS_FLAG?: boolean
       /** Format: int32 */
-      CURRENT_USING_COUNT?: number;
+      CURRENT_USING_COUNT?: number
       /** Format: int32 */
-      LIMIT_COUNT?: number;
-      PERMISSION?: components["schemas"]["BasePermissionsRes"];
+      LIMIT_COUNT?: number
+      PERMISSION?: components['schemas']['BasePermissionsRes']
       /** Format: int32 */
-      RESIZED_WIDTH?: number;
-      LIMITED?: boolean;
-    };
+      RESIZED_WIDTH?: number
+      LIMITED?: boolean
+    }
     AppResponseListGroupRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["ListGroupRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['ListGroupRes']
+    }
     Group: {
       /** Format: int64 */
-      ID?: number;
-      NAME?: string;
-    };
+      ID?: number
+      NAME?: string
+    }
     ListGroupRes: {
-      LIST_GROUP?: components["schemas"]["Group"][];
-    };
+      LIST_GROUP?: components['schemas']['Group'][]
+    }
     DeleteComicReq: {
-      LOCALE_CODE: string;
-    };
+      LOCALE_CODE: string
+    }
     AppResponseDeleteRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["DeleteRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['DeleteRes']
+    }
     DeleteRes: {
-      MESSAGE?: string;
-    };
+      MESSAGE?: string
+    }
     Req: {
-      CHAPTER_IDS?: number[];
-    };
+      CHAPTER_IDS?: number[]
+    }
     DeleteIdentitiesReq: {
-      EMAIL: string;
-    };
+      EMAIL: string
+    }
     AppResponseDeleteIdentitiesRes: {
-      ERR_CODE?: string;
-      REASON?: string;
-      RESULT?: string;
-      DATA?: components["schemas"]["DeleteIdentitiesRes"];
-    };
+      ERR_CODE?: string
+      REASON?: string
+      RESULT?: string
+      DATA?: components['schemas']['DeleteIdentitiesRes']
+    }
     DeleteIdentitiesRes: {
-      MESSAGE?: string;
-    };
-  };
-  responses: never;
-  parameters: never;
-  requestBodies: never;
-  headers: never;
-  pathItems: never;
+      MESSAGE?: string
+    }
+  }
+  responses: never
+  parameters: never
+  requestBodies: never
+  headers: never
+  pathItems: never
 }
 
-export type $defs = Record<string, never>;
+export type $defs = Record<string, never>
 
-export type external = Record<string, never>;
+export type external = Record<string, never>
 
 export interface operations {
 
   getComicDetail: {
     parameters: {
       path: {
-        comicId: number;
-      };
-    };
+        comicId: number
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseComicDetailRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseComicDetailRes']
+        }
+      }
+    }
+  }
   updateComic: {
     parameters: {
       path: {
-        comicId: number;
-      };
-    };
+        comicId: number
+      }
+    }
     requestBody: {
       content: {
-        "application/json": components["schemas"]["UpdateComicReq"];
-      };
-    };
+        'application/json': components['schemas']['UpdateComicReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseComicDetailRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseComicDetailRes']
+        }
+      }
+    }
+  }
   deleteComic: {
     parameters: {
       path: {
-        comicId: number;
-      };
-    };
+        comicId: number
+      }
+    }
     requestBody: {
       content: {
-        "application/json": components["schemas"]["DeleteComicReq"];
-      };
-    };
+        'application/json': components['schemas']['DeleteComicReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseDeleteRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseDeleteRes']
+        }
+      }
+    }
+  }
   getChapter: {
     parameters: {
       path: {
-        id: number;
-      };
-    };
+        id: number
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseChapterDetailRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseChapterDetailRes']
+        }
+      }
+    }
+  }
   updateChapter: {
     parameters: {
       path: {
-        id: number;
-      };
-    };
+        id: number
+      }
+    }
     requestBody: {
       content: {
-        "application/json": components["schemas"]["CreateUpdateTextBoxesRequest"];
-      };
-    };
+        'application/json': components['schemas']['CreateUpdateTextBoxesRequest']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseChapterDetailRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseChapterDetailRes']
+        }
+      }
+    }
+  }
   userUpdatePassword: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["UserUpdatePassReq"];
-      };
-    };
+        'application/json': components['schemas']['UserUpdatePassReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseUserUpdatePassRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseUserUpdatePassRes']
+        }
+      }
+    }
+  }
   adminUpdatePassword: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["AdminUpdatePassReq"];
-      };
-    };
+        'application/json': components['schemas']['AdminUpdatePassReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseAdminUpdatePassRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseAdminUpdatePassRes']
+        }
+      }
+    }
+  }
   createIdentities: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["CreateIdentityReq"];
-      };
-    };
+        'application/json': components['schemas']['CreateIdentityReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseCreateIdentityRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseCreateIdentityRes']
+        }
+      }
+    }
+  }
   deleteIdentities: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["DeleteIdentitiesReq"];
-      };
-    };
+        'application/json': components['schemas']['DeleteIdentitiesReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseDeleteIdentitiesRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseDeleteIdentitiesRes']
+        }
+      }
+    }
+  }
   listGroup: {
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseListGroupRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseListGroupRes']
+        }
+      }
+    }
+  }
   updateGroup: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["UpdateGroupReq"];
-      };
-    };
+        'application/json': components['schemas']['UpdateGroupReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseUpdateGroupRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseUpdateGroupRes']
+        }
+      }
+    }
+  }
   createGroup: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["CreateGroupReq"];
-      };
-    };
+        'application/json': components['schemas']['CreateGroupReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseCreateGroupRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseCreateGroupRes']
+        }
+      }
+    }
+  }
   preSignedUpload: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["GenPreSignedUrlReq"];
-      };
-    };
+        'application/json': components['schemas']['GenPreSignedUrlReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseObject"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseObject']
+        }
+      }
+    }
+  }
   downloadImage: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["DownloadImageReq"];
-      };
-    };
+        'application/json': components['schemas']['DownloadImageReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseListString"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseListString']
+        }
+      }
+    }
+  }
   RenameComicOrChapter: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["RenameReq"];
-      };
-    };
+        'application/json': components['schemas']['RenameReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseObject"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseObject']
+        }
+      }
+    }
+  }
   GetListChapter: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["SearchReqGetListChapterReq"];
-      };
-    };
+        'application/json': components['schemas']['SearchReqGetListChapterReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseObject"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseObject']
+        }
+      }
+    }
+  }
   GetChapterDetail: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["GetChapterDetailReq"];
-      };
-    };
+        'application/json': components['schemas']['GetChapterDetailReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseGetChapterDetailRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseGetChapterDetailRes']
+        }
+      }
+    }
+  }
   CreateUpdateChapter: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["CreateUpdateChapterDto"];
-      };
-    };
+        'application/json': components['schemas']['CreateUpdateChapterDto']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseObject"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseObject']
+        }
+      }
+    }
+  }
   createManualLog: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["LogReq"];
-      };
-    };
+        'application/json': components['schemas']['LogReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
-        content: never;
-      };
-    };
-  };
+        content: never
+      }
+    }
+  }
   translate: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["TranslateReq"];
-      };
-    };
+        'application/json': components['schemas']['TranslateReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseTranslateRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseTranslateRes']
+        }
+      }
+    }
+  }
   translateTextBoxes: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["TranslateTextBoxesReq"];
-      };
-    };
+        'application/json': components['schemas']['TranslateTextBoxesReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseTranslateTextBoxesRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseTranslateTextBoxesRes']
+        }
+      }
+    }
+  }
   translatePts: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["TranslatePtsReq"];
-      };
-    };
+        'application/json': components['schemas']['TranslatePtsReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseTranslatePtsRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseTranslatePtsRes']
+        }
+      }
+    }
+  }
   detectByYcommVision: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["GoogleVisionReq"];
-      };
-    };
+        'application/json': components['schemas']['GoogleVisionReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseListTextBoxDtoRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseListTextBoxDtoRes']
+        }
+      }
+    }
+  }
   detectByGoogleVision: {
     parameters: {
       query: {
-        smartSplit: boolean;
-      };
-    };
+        smartSplit: boolean
+      }
+    }
     requestBody: {
       content: {
-        "application/json": components["schemas"]["GoogleVisionReq"];
-      };
-    };
+        'application/json': components['schemas']['GoogleVisionReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseChapterDetailRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseChapterDetailRes']
+        }
+      }
+    }
+  }
   getComicId: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["GetComicIdReq"];
-      };
-    };
+        'application/json': components['schemas']['GetComicIdReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseGetComicIdRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseGetComicIdRes']
+        }
+      }
+    }
+  }
   createDraftChapter: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["CreateEmptyChapterReq"];
-      };
-    };
+        'application/json': components['schemas']['CreateEmptyChapterReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseCreateUpdateChapterRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseCreateUpdateChapterRes']
+        }
+      }
+    }
+  }
   createTextBoxes: {
     parameters: {
       path: {
-        id: number;
-      };
-    };
+        id: number
+      }
+    }
     requestBody: {
       content: {
-        "application/json": components["schemas"]["CreateDefaultTextBoxesReq"];
-      };
-    };
+        'application/json': components['schemas']['CreateDefaultTextBoxesReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseChapterDetailRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseChapterDetailRes']
+        }
+      }
+    }
+  }
   exportDraftPSD: {
     parameters: {
       path: {
-        id: number;
-      };
-    };
+        id: number
+      }
+    }
     requestBody: {
       content: {
-        "application/json": components["schemas"]["ExportDraftChapterRequest"];
-      };
-    };
+        'application/json': components['schemas']['ExportDraftChapterRequest']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseExportQueueRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseExportQueueRes']
+        }
+      }
+    }
+  }
   exportDraftJSON: {
     parameters: {
       path: {
-        id: number;
-      };
-    };
+        id: number
+      }
+    }
     requestBody: {
       content: {
-        "application/json": components["schemas"]["ExportDraftChapterRequest"];
-      };
-    };
+        'application/json': components['schemas']['ExportDraftChapterRequest']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseExportQueueRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseExportQueueRes']
+        }
+      }
+    }
+  }
   exportDraftImage: {
     parameters: {
       path: {
-        id: number;
-      };
-    };
+        id: number
+      }
+    }
     requestBody: {
       content: {
-        "application/json": components["schemas"]["ExportDraftChapterRequest"];
-      };
-    };
+        'application/json': components['schemas']['ExportDraftChapterRequest']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseExportQueueRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseExportQueueRes']
+        }
+      }
+    }
+  }
   exportDraftExcel: {
     parameters: {
       path: {
-        id: number;
-      };
-    };
+        id: number
+      }
+    }
     requestBody: {
       content: {
-        "application/json": components["schemas"]["ExportDraftChapterRequest"];
-      };
-    };
+        'application/json': components['schemas']['ExportDraftChapterRequest']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseExportQueueRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseExportQueueRes']
+        }
+      }
+    }
+  }
   checkNameExist: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["CheckNameExistReq"];
-      };
-    };
+        'application/json': components['schemas']['CheckNameExistReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseCheckNameExistRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseCheckNameExistRes']
+        }
+      }
+    }
+  }
   getLoginLogs: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["PaginationReq"];
-      };
-    };
+        'application/json': components['schemas']['PaginationReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": Record<string, never>;
-        };
-      };
-    };
-  };
+          'application/json': Record<string, never>
+        }
+      }
+    }
+  }
   getActionLogs: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["PaginationReq"];
-      };
-    };
+        'application/json': components['schemas']['PaginationReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": Record<string, never>;
-        };
-      };
-    };
-  };
+          'application/json': Record<string, never>
+        }
+      }
+    }
+  }
   reject: {
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": string;
-        };
-      };
-    };
-  };
+          'application/json': string
+        }
+      }
+    }
+  }
   afterLogin: {
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": string;
-        };
-      };
-    };
-  };
+          'application/json': string
+        }
+      }
+    }
+  }
   execute: {
     parameters: {
       query: {
-        url: string;
-      };
-    };
+        url: string
+      }
+    }
     responses: {
       /** @description OK */
       200: {
-        content: never;
-      };
-    };
-  };
+        content: never
+      }
+    }
+  }
   saveLogoutLog: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["LogReq"];
-      };
-    };
+        'application/json': components['schemas']['LogReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseLogRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseLogRes']
+        }
+      }
+    }
+  }
   saveLoginFailedLog: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["LogReq"];
-      };
-    };
+        'application/json': components['schemas']['LogReq']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseLogRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseLogRes']
+        }
+      }
+    }
+  }
   getS3Url: {
     parameters: {
       query: {
-        objectKey: string;
-      };
-    };
+        objectKey: string
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": string;
-        };
-      };
-    };
-  };
+          'application/json': string
+        }
+      }
+    }
+  }
   getTranslateLocaleList: {
     parameters: {
       query: {
-        localeCodeId: number;
-      };
-    };
+        localeCodeId: number
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseListTargetLocale"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseListTargetLocale']
+        }
+      }
+    }
+  }
   getTranslateLocaleListForPts: {
     parameters: {
       query: {
-        sourceLocaleCode: string;
-      };
-    };
+        sourceLocaleCode: string
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseListTargetLocale"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseListTargetLocale']
+        }
+      }
+    }
+  }
   getSourceLocale: {
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseListLocaleRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseListLocaleRes']
+        }
+      }
+    }
+  }
   getLocaleList: {
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseListLocaleRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseListLocaleRes']
+        }
+      }
+    }
+  }
   groupTranslateLocale: {
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseListLocaleRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseListLocaleRes']
+        }
+      }
+    }
+  }
   getEngineList: {
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseListTranslateEngineEntity"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseListTranslateEngineEntity']
+        }
+      }
+    }
+  }
   comicTranslateLocale: {
     parameters: {
       query: {
-        comicId: number;
-      };
-    };
+        comicId: number
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseListLocaleRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseListLocaleRes']
+        }
+      }
+    }
+  }
   getAllSite: {
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseListSiteEntity"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseListSiteEntity']
+        }
+      }
+    }
+  }
   getOneSite: {
     parameters: {
       path: {
-        id: number;
-      };
-    };
+        id: number
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseOptionalSiteEntity"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseOptionalSiteEntity']
+        }
+      }
+    }
+  }
   getEngineList_1: {
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseListOCREngineEntity"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseListOCREngineEntity']
+        }
+      }
+    }
+  }
   getListCrawlSite: {
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseListCrawlSiteDto"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseListCrawlSiteDto']
+        }
+      }
+    }
+  }
   searchComic: {
     parameters: {
       query?: {
-        currentPage?: number;
-        comicName?: string;
-        time?: string;
-        localeCode?: string;
-        sortName?: string;
-        sortTime?: string;
-      };
-    };
+        currentPage?: number
+        comicName?: string
+        time?: string
+        localeCode?: string
+        sortName?: string
+        sortTime?: string
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseSearchRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseSearchRes']
+        }
+      }
+    }
+  }
   validateChapter: {
     parameters: {
       path: {
-        id: number;
-      };
-    };
+        id: number
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseString"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseString']
+        }
+      }
+    }
+  }
   getChapterDetailPS: {
     parameters: {
       path: {
-        id: number;
-      };
-    };
+        id: number
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseRedirectExportChapterInput"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseRedirectExportChapterInput']
+        }
+      }
+    }
+  }
   exportPsd: {
     parameters: {
       query: {
-        localeCode: string;
-      };
+        localeCode: string
+      }
       path: {
-        id: number;
-      };
-    };
+        id: number
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseExportQueueRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseExportQueueRes']
+        }
+      }
+    }
+  }
   exportJson: {
     parameters: {
       query: {
-        localeCode: string;
-        request: components["schemas"]["ExportDraftChapterRequest"];
-      };
+        localeCode: string
+        request: components['schemas']['ExportDraftChapterRequest']
+      }
       path: {
-        id: number;
-      };
-    };
+        id: number
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseExportQueueRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseExportQueueRes']
+        }
+      }
+    }
+  }
   exportImage: {
     parameters: {
       query: {
-        localeCode: string;
-      };
+        localeCode: string
+      }
       path: {
-        id: number;
-      };
-    };
+        id: number
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseExportQueueRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseExportQueueRes']
+        }
+      }
+    }
+  }
   exportExcel: {
     parameters: {
       query: {
-        localeCode: string;
-      };
+        localeCode: string
+      }
       path: {
-        id: number;
-      };
-    };
+        id: number
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseExportQueueRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseExportQueueRes']
+        }
+      }
+    }
+  }
   searchPs: {
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseRes']
+        }
+      }
+    }
+  }
   searchChapterManagement: {
     parameters: {
       query: {
-        currentPage?: number;
-        comicId: number;
-        chapterId?: number;
-        chapterName?: string;
-        time?: string;
-        translateLocaleCode?: string;
-        sortName?: string;
-        sortTime?: string;
-      };
-    };
+        currentPage?: number
+        comicId: number
+        chapterId?: number
+        chapterName?: string
+        time?: string
+        translateLocaleCode?: string
+        sortName?: string
+        sortTime?: string
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseSearchRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseSearchRes']
+        }
+      }
+    }
+  }
   exportTrainingJSON: {
     parameters: {
       query: {
-        page: number;
-      };
-    };
+        page: number
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseExportTrainingResult"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseExportTrainingResult']
+        }
+      }
+    }
+  }
   getExportUrl: {
     parameters: {
       query: {
-        id: number;
-      };
-    };
+        id: number
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseExportQueueRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseExportQueueRes']
+        }
+      }
+    }
+  }
   testCleaner: {
     parameters: {
       query: {
-        chapterId: number;
-      };
-    };
+        chapterId: number
+      }
+    }
     responses: {
       /** @description OK */
       200: {
-        content: never;
-      };
-    };
-  };
+        content: never
+      }
+    }
+  }
   testChapterCleaner: {
     parameters: {
       query: {
-        chapterId: number;
-      };
-    };
+        chapterId: number
+      }
+    }
     responses: {
       /** @description OK */
       200: {
-        content: never;
-      };
-    };
-  };
+        content: never
+      }
+    }
+  }
   rollback: {
     parameters: {
       query?: {
-        chapterId?: number;
-      };
-    };
+        chapterId?: number
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseRes']
+        }
+      }
+    }
+  }
   migrateFromImageTable: {
     parameters: {
       query?: {
-        chapterId?: number;
-      };
-    };
+        chapterId?: number
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseRes']
+        }
+      }
+    }
+  }
   migrateImageFormat: {
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseRes']
+        }
+      }
+    }
+  }
   healthcheck: {
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": string;
-        };
-      };
-    };
-  };
+          'application/json': string
+        }
+      }
+    }
+  }
   getUserInfo: {
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseUserInfRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseUserInfRes']
+        }
+      }
+    }
+  }
   deleteChapters: {
     parameters: {
       query: {
-        chapterIds: number[];
-      };
-    };
+        chapterIds: number[]
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseObject"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseObject']
+        }
+      }
+    }
+  }
   deleteChapter: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Req"];
-      };
-    };
+        'application/json': components['schemas']['Req']
+      }
+    }
     responses: {
       /** @description OK */
       200: {
         content: {
-          "application/json": components["schemas"]["AppResponseRes"];
-        };
-      };
-    };
-  };
+          'application/json': components['schemas']['AppResponseRes']
+        }
+      }
+    }
+  }
 }

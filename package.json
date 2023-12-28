@@ -13,14 +13,16 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@antfu/eslint-config": "^2.6.0",
+    "@antfu/eslint-config": "^2.6.1",
     "@nuxtjs/svg-sprite": "^1.0.2",
     "@pinia/nuxt": "^0.5.1",
+    "babel-eslint": "^10.1.0",
     "eslint": "^8.55.0",
     "openapi-fetch": "^0.8.2",
     "openapi-typescript": "^6.7.3",
     "pinia": "^2.1.7",
-    "sass": "^1.69.5"
+    "sass": "^1.69.5",
+    "typescript": "^5.3.3"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",

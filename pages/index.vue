@@ -1,19 +1,18 @@
 <script lang='ts' setup>
 // const { GET } = useBackendApi()
-
-onMounted(async () => {
-
-  // const test = await GET('/api-v2/work/translate/locales', {})
-  // console.log(test.data?.map(el => el))
-  // test.data.DATA.map((e) => console.log(e))
-})
 </script>
 
 <template>
   {{ $t('welcome') }} from main
   <NuxtLink to="/login">
     <common-button class="mt-2" icon="avatar">
-      Go to login
+      Go to Login Page
+    </common-button>
+  </NuxtLink>
+
+  <NuxtLink to="/form">
+    <common-button class="mt-2" icon="avatar">
+      Go to Form Page
     </common-button>
   </NuxtLink>
 </template>

@@ -5,6 +5,7 @@
 - openapi-fetch openapi-typescript
 - svg/sprite
 - vee-validate + yup
+- headless-ui
 
 ## Configuration
 - SCSS

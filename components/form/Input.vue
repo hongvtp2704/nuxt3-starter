@@ -73,7 +73,7 @@ const isActionIconSlot = computed(() => !!slots['action-icon'])
   display: flex;
   flex-direction: column;
 
-  //Custom size
+  // Size styling
   &.md {
     font-size: 14px;
     .input-field {

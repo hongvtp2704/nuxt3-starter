@@ -1,5 +1,5 @@
-import en from '~/locales/en.json'
-import vi from '~/locales/vi.json'
+import en from '~/lib/locales/en.json'
+import vi from '~/lib/locales/vi.json'
 
 export default defineI18nConfig(() => ({
   legacy: false,

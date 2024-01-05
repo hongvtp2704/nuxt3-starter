@@ -33,7 +33,10 @@ watch(modelValue, (value) => {
 })
 function updateModalValue(event: Event) {
   const target = event.target as HTMLInputElement
-  handleChange(target.value)
+
+  if (name.value)
+    handleChange(target.value)
+
   if (typeof modelValue.value !== 'undefined')
     emits('update:modelValue', target.value)
   else inputValue.value = target.value

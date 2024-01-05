@@ -5,7 +5,7 @@ import { useField } from 'vee-validate'
 type SelectSize = 'sm' | 'md' | 'lg'
 interface IProps {
   options: Array<any>
-  modelValue: any
+  modelValue: Array<any>
   keyProp: string
   labelProp: string
   placeholder: string
@@ -24,18 +24,19 @@ const props = withDefaults(defineProps<IProps>(), {
 const emits = defineEmits<IEmits>()
 
 const { options, modelValue, keyProp, labelProp, placeholder, name, label, size } = toRefs(props)
-const { errorMessage, handleChange } = useField(name)
 
-const inputValue = ref<string | number>('')
+const inputValue = ref<Array<any>>([])
 watch(modelValue, (value) => {
-  inputValue.value = value
+  inputValue.value = value as Array<any>
 })
 
 const selectedDisplay = computed(() => {
-  return inputValue.value ? inputValue.value[labelProp.value] : placeholder.value
+  return inputValue.value.length > 0 ? inputValue.value.map(value => value[labelProp.value]).join(',') : placeholder.value
 })
 
-function updateModalValue(value: any) {
+const { errorMessage, handleChange } = useField(name)
+
+function updateModalValue(value: Array<any>) {
   if (name.value)
     handleChange(value)
 
@@ -51,6 +52,7 @@ function updateModalValue(value: any) {
     <Listbox
       v-slot="{ open }"
       :model-value="inputValue"
+      multiple
       @update:model-value="value => updateModalValue(value)"
     >
       <div class="relative" :class="{ 'mt-2': !!label, 'mb-2': !!errorMessage }">
@@ -130,9 +132,13 @@ function updateModalValue(value: any) {
     }
   }
 
+  svg {
+    flex-shrink: 0;
+  }
   .listbox-btn {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     border: 1px solid #33394C;
     border-radius: 8px;

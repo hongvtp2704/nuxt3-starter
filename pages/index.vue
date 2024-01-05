@@ -5,14 +5,14 @@
 <template>
   {{ $t('welcome') }} from main
   <NuxtLink to="/login">
-    <common-button class="mt-2" icon="avatar">
+    <app-button class="mt-2" icon="avatar">
       Go to Login Page
-    </common-button>
+    </app-button>
   </NuxtLink>
 
   <NuxtLink to="/form">
-    <common-button class="mt-2" icon="avatar">
+    <app-button class="mt-2" icon="avatar">
       Go to Form Page
-    </common-button>
+    </app-button>
   </NuxtLink>
 </template>

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import Menu from './default/Menu.vue'
-import Notification from './default/Notification.vue'
+import Menu from './components/default/Menu.vue'
+import Notification from './components/default/Notification.vue'
 </script>
 
 <template>

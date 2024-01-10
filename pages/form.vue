@@ -39,7 +39,7 @@ onMounted(() => {
 <template>
   <div class="mt-2" />
   <div class="bg-[#191C27] p-8 w-[300px]">
-    <form-input v-model:model-value="email" name="email" label="Email" placeholder="Your email" icon="avatar">
+    <form-input v-model:model-value="email" label="Email" placeholder="Your email" icon="avatar">
       <template #action-icon>
         <svg-icon name="circle" width="20" height="20" />
       </template>

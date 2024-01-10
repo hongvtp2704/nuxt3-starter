@@ -1,5 +1,5 @@
 <script lang="ts" setup></script>
 
 <template>
-  Webtoons managements
+  Hello from webtoons
 </template>
